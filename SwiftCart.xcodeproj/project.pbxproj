@@ -30,6 +30,7 @@
 		4C9C39B52C0A2C03003F0769 /* NibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9C39B42C0A2C03003F0769 /* NibViewController.swift */; };
 		4CC00E812C09FE5900DD2758 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC00E7F2C09FE5900DD2758 /* LoginVC.swift */; };
 		4CC00E822C09FE5900DD2758 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC00E802C09FE5900DD2758 /* LoginVC.xib */; };
+		BCB96BD25923D2BBEFE8CC00 /* Pods_SwiftCart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB14D06EB633106E7AE8F222 /* Pods_SwiftCart.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,9 @@
 		4C9C39B42C0A2C03003F0769 /* NibViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibViewController.swift; sourceTree = "<group>"; };
 		4CC00E7F2C09FE5900DD2758 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		4CC00E802C09FE5900DD2758 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		C8E40A6DD35BE9C1D1F60EAF /* Pods-SwiftCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.release.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.release.xcconfig"; sourceTree = "<group>"; };
+		CB14D06EB633106E7AE8F222 /* Pods_SwiftCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E32CEC3A289B5E1A972E69C7 /* Pods-SwiftCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 				048F0F792C090CFF00999716 /* Reachability in Frameworks */,
 				048F0F712C090C1900999716 /* Alamofire in Frameworks */,
 				048F0F732C090C1900999716 /* AlamofireDynamic in Frameworks */,
+				BCB96BD25923D2BBEFE8CC00 /* Pods_SwiftCart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,8 @@
 			children = (
 				04715A5F2C08F1D100D8DC3B /* SwiftCart */,
 				04715A5E2C08F1D100D8DC3B /* Products */,
+				CE7540BFD1B403AD7B426C7C /* Pods */,
+				0F61367F16216FBC6314CFDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +214,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		0F61367F16216FBC6314CFDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB14D06EB633106E7AE8F222 /* Pods_SwiftCart.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4C9C39AE2C0A25CE003F0769 /* NibAssestant */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +265,16 @@
 			path = LoginVC;
 			sourceTree = "<group>";
 		};
+		CE7540BFD1B403AD7B426C7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E32CEC3A289B5E1A972E69C7 /* Pods-SwiftCart.debug.xcconfig */,
+				C8E40A6DD35BE9C1D1F60EAF /* Pods-SwiftCart.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,6 +282,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04715A712C08F1D500D8DC3B /* Build configuration list for PBXNativeTarget "SwiftCart" */;
 			buildPhases = (
+				C45EBF4A288E4ACA4B4809BD /* [CP] Check Pods Manifest.lock */,
 				04715A592C08F1D100D8DC3B /* Sources */,
 				04715A5A2C08F1D100D8DC3B /* Frameworks */,
 				04715A5B2C08F1D100D8DC3B /* Resources */,
@@ -303,7 +329,7 @@
 			packageReferences = (
 				048F0F6F2C090C1900999716 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				048F0F742C090C8A00999716 /* XCRemoteSwiftPackageReference "Cosmos" */,
-				048F0F772C090CFF00999716 /* XCRemoteSwiftPackageReference "Reachability" */,
+				048F0F772C090CFF00999716 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
 			);
 			productRefGroup = 04715A5E2C08F1D100D8DC3B /* Products */;
 			projectDirPath = "";
@@ -328,6 +354,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C45EBF4A288E4ACA4B4809BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftCart-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04715A592C08F1D100D8DC3B /* Sources */ = {
@@ -494,6 +545,7 @@
 		};
 		04715A722C08F1D500D8DC3B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E32CEC3A289B5E1A972E69C7 /* Pods-SwiftCart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -521,6 +573,7 @@
 		};
 		04715A732C08F1D500D8DC3B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8E40A6DD35BE9C1D1F60EAF /* Pods-SwiftCart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -586,7 +639,7 @@
 				minimumVersion = 25.0.1;
 			};
 		};
-		048F0F772C090CFF00999716 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+		048F0F772C090CFF00999716 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
 			requirement = {
@@ -614,7 +667,7 @@
 		};
 		048F0F782C090CFF00999716 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 048F0F772C090CFF00999716 /* XCRemoteSwiftPackageReference "Reachability" */;
+			package = 048F0F772C090CFF00999716 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
 			productName = Reachability;
 		};
 /* End XCSwiftPackageProductDependency section */

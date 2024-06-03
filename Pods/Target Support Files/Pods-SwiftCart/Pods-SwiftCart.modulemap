@@ -1,0 +1,6 @@
+framework module Pods_SwiftCart {
+  umbrella header "Pods-SwiftCart-umbrella.h"
+
+  export *
+  module * { export * }
+}
