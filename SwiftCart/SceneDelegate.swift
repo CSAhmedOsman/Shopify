@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        // Load the SginUP view controller from the Nib file
-        let mainViewController = SginUP(nibName: "SginUP", bundle: nil)
+        // Load the Login view controller from the Nib file
+        let mainViewController = Login(nibName: "Login", bundle: nil)
         
         // Embed the main view controller in a navigation controller
         let navigationController = UINavigationController(rootViewController: mainViewController)

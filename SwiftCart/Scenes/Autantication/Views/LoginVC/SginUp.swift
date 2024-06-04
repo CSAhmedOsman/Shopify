@@ -1,5 +1,5 @@
 //
-//  LoginVC.swift
+//  SginUp.swift
 //  SwiftCart
 //
 //  Created by Anas Salah on 31/05/2024.
@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginVC: UIViewController {
+class SginUp: UIViewController { // TODO: fix routation in Sgin UP
     
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -27,10 +27,10 @@ class LoginVC: UIViewController {
     @IBAction func skipBtn(_ sender: Any) { }
     
     @IBAction func alleadyHaveAcc(_ sender: Any) {
-        let SginUP = SginUP(nibName: "SginUP", bundle: nil)
+        let sginUP = Login(nibName: "Login", bundle: nil)
         
         if let nabigationContoller = self.navigationController {
-            nabigationContoller.pushViewController(SginUP, animated: true)
+            nabigationContoller.pushViewController(sginUP, animated: true)
         }
     }
 

@@ -1,5 +1,5 @@
 //
-//  SginUP.swift
+//  Login.swift
 //  SwiftCart
 //
 //  Created by Anas Salah on 31/05/2024.
@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class SginUP: UIViewController {
+class Login: UIViewController {
 
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -32,13 +32,13 @@ class SginUP: UIViewController {
     
     @IBAction func dontHaveAcc(_ sender: Any) {
         print("Test")
-        let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
+        let sginUp = SginUp(nibName: "SginUp", bundle: nil)
         
         // Check if the parent view controller is a navigation controller
         if let navController = navigationController {
             print("Parent is UINavigationController")
-            // Push the LoginVC onto the navigation stack
-            navController.pushViewController(loginVC, animated: true)
+            // Push the SginUp onto the navigation stack
+            navController.pushViewController(sginUp, animated: true)
         } else {
             print("Parent is not UINavigationController")
         }

@@ -22,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create a UIWindow instance
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        // Load the SginUP view controller from the Nib file
-        let sginUPViewController = SginUP(nibName: "SginUP", bundle: nil)
+        // Load the Login view controller from the Nib file
+        let sginUPViewController = Login(nibName: "Login", bundle: nil)
         
-        // Create a navigation controller with SginUP as the root view controller
+        // Create a navigation controller with Login as the root view controller
         let navigationController = UINavigationController(rootViewController: sginUPViewController)
         
         // Set the root view controller of the window to be the navigation controller
