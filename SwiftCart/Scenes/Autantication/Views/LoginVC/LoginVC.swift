@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class LoginVC: NibViewController {
+class LoginVC: UIViewController {
     
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -25,13 +26,36 @@ class LoginVC: NibViewController {
 
     @IBAction func skipBtn(_ sender: Any) { }
     
-    @IBAction func alleadyHaveAcc(_ sender: Any) { }
+    @IBAction func alleadyHaveAcc(_ sender: Any) {
+        let SginUP = SginUP(nibName: "SginUP", bundle: nil)
+        
+        if let nabigationContoller = self.navigationController {
+            nabigationContoller.pushViewController(SginUP, animated: true)
+        }
+    }
 
-    @IBAction func sginUp(_ sender: Any) { }
+    @IBAction func sginUp(_ sender: Any) {
+        guard let email = emailTF.text, !email.isEmpty,
+              let password = passwordTF.text, !password.isEmpty else {
+            print("Email and password are required")
+            return
+        }
+
+        // Create a new user account with the provided email and password
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Error creating user: \(error.localizedDescription)")
+                // Handle the error, e.g., show an alert to the user
+            } else {
+                print("User created successfully")
+                // Navigate to the next screen, e.g., the home screen
+            }
+        }
+    }
 
     @IBAction func sginUpWithGoogle(_ sender: Any) { }
 
-    @IBAction func sginUpWithX(_ sender: Any) { }
+    @IBAction func sginUpWithX(_ sender: Any) {}
 
     
     /*

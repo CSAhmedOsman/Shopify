@@ -11,13 +11,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        // Ensure the scene is a UIWindowScene
+        guard let windowScene = scene as? UIWindowScene else { return }
+        
+        // Create a UIWindow instance and set the scene's window property
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+        
+        // Load the SginUP view controller from the Nib file
+        let mainViewController = SginUP(nibName: "SginUP", bundle: nil)
+        
+        // Embed the main view controller in a navigation controller
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        
+        // Set the root view controller of the window to the navigation controller
+        window.rootViewController = navigationController
+
+        // Make the window visible
+        window.makeKeyAndVisible()
     }
+
+
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SginUP: UIViewController {
 
@@ -15,18 +16,52 @@ class SginUP: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        // TODO: hide back btn of navigation 
     }
 
+    @IBAction func backBtn(_ sender: Any) {
+        print("Test")
+        // TODO: pop from stack "self"
+    }
 
-    @IBAction func backBtn(_ sender: Any) { }
-
-    @IBAction func skipBtn(_ sender: Any) { }
+    @IBAction func skipBtn(_ sender: Any) { 
+        print("Test")
+        // TODO: This will nav to home as gust
+    }
     
-    @IBAction func dontHaveAcc(_ sender: Any) { }
+    @IBAction func dontHaveAcc(_ sender: Any) {
+        print("Test")
+        let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
+        
+        // Check if the parent view controller is a navigation controller
+        if let navController = navigationController {
+            print("Parent is UINavigationController")
+            // Push the LoginVC onto the navigation stack
+            navController.pushViewController(loginVC, animated: true)
+        } else {
+            print("Parent is not UINavigationController")
+        }
+    }
 
-    @IBAction func loginBtn(_ sender: Any) { }
+    @IBAction func loginBtn(_ sender: Any) {       
+        print("Test")
+        if let email = emailTF.text, let password = passwordTF.text {
+            Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    // MARK: show alert why cant Sgin UP // this will be from firebase
+                    // remmber firebase should contain at least 6 number for password and email should include
+                    // @ .com  // any way i will do more constatrin put for rembmber
+                } else {
+                    // MARK: Navigate to Home i think
+                    print("SginUp Done Succesfuly")
+                }
+            }
+        } else {
+            // MARK: show alert why cant Sgin UP // this will be from me and i can make an if on all of it to make sure from pass and email follow the princples i need.
+        }
+    }
     
     /*
     // MARK: - Navigation
