@@ -25,6 +25,7 @@
 		048F0F732C090C1900999716 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 048F0F722C090C1900999716 /* AlamofireDynamic */; };
 		048F0F762C090C8A00999716 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 048F0F752C090C8A00999716 /* Cosmos */; };
 		048F0F792C090CFF00999716 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 048F0F782C090CFF00999716 /* Reachability */; };
+		0E6301502C0EC49A00B83534 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E63014F2C0EC49A00B83534 /* SettingsStoryboard.storyboard */; };
 		4C9C39B22C0A2B8B003F0769 /* SginUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9C39B02C0A2B8B003F0769 /* SginUP.swift */; };
 		4C9C39B32C0A2B8B003F0769 /* SginUP.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9C39B12C0A2B8B003F0769 /* SginUP.xib */; };
 		4C9C39B52C0A2C03003F0769 /* NibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9C39B42C0A2C03003F0769 /* NibViewController.swift */; };
@@ -49,6 +50,7 @@
 		04715A8B2C08FD7300D8DC3B /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		04715A8D2C08FD7D00D8DC3B /* Local.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Local.swift; sourceTree = "<group>"; };
 		04715A902C08FDC400D8DC3B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0E63014F2C0EC49A00B83534 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		4C9C39B02C0A2B8B003F0769 /* SginUP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SginUP.swift; sourceTree = "<group>"; };
 		4C9C39B12C0A2B8B003F0769 /* SginUP.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SginUP.xib; sourceTree = "<group>"; };
 		4C9C39B42C0A2C03003F0769 /* NibViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		04715A752C08FB6900D8DC3B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0E63014D2C0EC47900B83534 /* Settings */,
 				4C9C39AE2C0A25CE003F0769 /* NibAssestant */,
 				4CC00E7C2C09FD9500DD2758 /* Autantication */,
 				04715A662C08F1D100D8DC3B /* Main.storyboard */,
@@ -205,6 +208,22 @@
 				04715A902C08FDC400D8DC3B /* Model.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0E63014D2C0EC47900B83534 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0E63014E2C0EC48100B83534 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0E63014E2C0EC48100B83534 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E63014F2C0EC49A00B83534 /* SettingsStoryboard.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4C9C39AE2C0A25CE003F0769 /* NibAssestant */ = {
@@ -319,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6301502C0EC49A00B83534 /* SettingsStoryboard.storyboard in Resources */,
 				4C9C39B32C0A2B8B003F0769 /* SginUP.xib in Resources */,
 				04715A6D2C08F1D500D8DC3B /* LaunchScreen.storyboard in Resources */,
 				04715A6A2C08F1D500D8DC3B /* Assets.xcassets in Resources */,
