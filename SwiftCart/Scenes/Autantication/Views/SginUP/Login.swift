@@ -29,11 +29,12 @@ class Login: UIViewController {
     @IBAction func skipBtn(_ sender: Any) { 
         print("Test")
         // TODO: This will nav to home as gust
+
     }
     
     @IBAction func dontHaveAcc(_ sender: Any) {
         print("Test")
-        let sginUp = SginUp(nibName: K.sginUpNibName, bundle: nil)
+        let sginUp = SginUp(nibName: K.Auth.sginUpNibName, bundle: nil)
         
         if let navController = navigationController {
             navController.pushViewController(sginUp, animated: true)
@@ -49,11 +50,13 @@ class Login: UIViewController {
                 if let error = error {
                     print(error.localizedDescription)
                     // MARK: show alert why cant Sgin UP // this will be from firebase
-                    // remmber firebase should contain at least 6 number for password and email should include
-                    // @ .com  // any way i will do more constatrin put for rembmber
+                    /*
+                     remmber firebase should contain at least 6 number for password and email should include
+                     @ .com  // any way i will do more constatrin put for rembmber
+                     */
                 } else {
                     // MARK: Navigate to Home i think
-                    print("SginUp Done Succesfuly")
+                    print("Login Done Succesfuly")
                 }
             }
         } else {

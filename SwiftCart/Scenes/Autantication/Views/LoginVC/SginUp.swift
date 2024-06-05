@@ -27,7 +27,7 @@ class SginUp: UIViewController { // TODO: fix routation in Sgin UP
     @IBAction func skipBtn(_ sender: Any) { }
     
     @IBAction func alleadyHaveAcc(_ sender: Any) {
-        let login = Login(nibName: K.loginNibName, bundle: nil)
+        let login = Login(nibName: K.Auth.loginNibName, bundle: nil)
 
         if let nabigationContoller = self.navigationController {
             nabigationContoller.pushViewController(login, animated: true)
