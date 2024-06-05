@@ -27,10 +27,11 @@ class SginUp: UIViewController { // TODO: fix routation in Sgin UP
     @IBAction func skipBtn(_ sender: Any) { }
     
     @IBAction func alleadyHaveAcc(_ sender: Any) {
-        let login = Login(nibName: K.Auth.loginNibName, bundle: nil)
-
-        if let nabigationContoller = self.navigationController {
-            nabigationContoller.pushViewController(login, animated: true)
+        if let loginViewController = navigationController?.viewControllers.first(where: { $0 is Login }) {
+            navigationController?.popToViewController(loginViewController, animated: true)
+        } else {
+            let login = Login(nibName: K.Auth.loginNibName, bundle: nil)
+            navigationController?.setViewControllers([login], animated: true)
         }
     }
 
@@ -44,7 +45,6 @@ class SginUp: UIViewController { // TODO: fix routation in Sgin UP
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Error creating user: \(error.localizedDescription)")
-                // Handle the error, show an alert to the user
             } else {
                 print("User created successfully")
                 // Navigate to the next screen, the home screen

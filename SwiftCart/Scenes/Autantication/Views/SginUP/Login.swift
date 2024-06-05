@@ -33,37 +33,65 @@ class Login: UIViewController {
     }
     
     @IBAction func dontHaveAcc(_ sender: Any) {
-        print("Test")
-        let sginUp = SginUp(nibName: K.Auth.sginUpNibName, bundle: nil)
-        
-        if let navController = navigationController {
-            navController.pushViewController(sginUp, animated: true)
+        if let signUpViewController = navigationController?.viewControllers.first(where: { $0 is SginUp }) {
+            navigationController?.popToViewController(signUpViewController, animated: true)
         } else {
-            print("Parent is not UINavigationController")
+            let signUp = SginUp(nibName: K.Auth.sginUpNibName, bundle: nil)
+            navigationController?.setViewControllers([signUp], animated: true)
         }
     }
 
-    @IBAction func loginBtn(_ sender: Any) {       
-        print("Test")
-        if let email = emailTF.text, let password = passwordTF.text {
-            Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    // MARK: show alert why cant Sgin UP // this will be from firebase
-                    /*
-                     remmber firebase should contain at least 6 number for password and email should include
-                     @ .com  // any way i will do more constatrin put for rembmber
-                     */
-                } else {
-                    // MARK: Navigate to Home i think
-                    print("Login Done Succesfuly")
-                }
+    @IBAction func loginBtn(_ sender: Any) {
+        guard let email = emailTF.text, !email.isEmpty,
+              let password = passwordTF.text, !password.isEmpty else {
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+
+            AlertManager.showAlert(title: "Error!", message: "Pleas enter both email and password", preferredStyle: .alert, actions: [defaultAction], from: self)
+            print("Error")
+            return
+        }
+
+        guard isValidEmail(email) else {
+            showAlert(title: "Invalid email", message: "Please enter a valid email address.")
+            return
+        }
+        
+        guard isValidPassword(password) else {
+            showAlert(title: "Invalid password", message: "Password must contain one at least uppercase letter, one lowercase letter, one digit, one special character, and be at least 6 characters long.")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Login Failed:", error.localizedDescription)
+                self.showAlert(title: "Faild to Login", message: error.localizedDescription)
+            } else {
+                print("Login Successful")
+                // TODO: Navigate to Home
             }
-        } else {
-            // MARK: show alert why cant Sgin UP // this will be from me and i can make an if on all of it to make sure from pass and email follow the princples i need.
         }
     }
     
+    
+    // MARK: - Helper Methods
+
+    private func showAlert(title: String, message: String) {
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        AlertManager.showAlert(title: title, message: message, preferredStyle: .alert, actions: [defaultAction], from: self)
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+
+
+    private func isValidPassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$"
+        let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegex)
+        return passwordTest.evaluate(with: password)
+    }
     /*
     // MARK: - Navigation
 
