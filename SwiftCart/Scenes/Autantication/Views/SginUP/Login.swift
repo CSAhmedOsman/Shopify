@@ -51,46 +51,25 @@ class Login: UIViewController {
             return
         }
 
-        guard isValidEmail(email) else {
-            showAlert(title: "Invalid email", message: "Please enter a valid email address.")
+        guard AuthHelper.isValidEmail(email) else {
+            AuthHelper.showAlert(title: "Invalid email", message: "Please enter a valid email address.", from: self)
             return
         }
         
-        guard isValidPassword(password) else {
-            showAlert(title: "Invalid password", message: "Password must contain one at least uppercase letter, one lowercase letter, one digit, one special character, and be at least 6 characters long.")
+        guard AuthHelper.isValidPassword(password: password) else {
+            AuthHelper.showAlert(title: "Invalid password", message: "Password must contain one at least uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long.", from: self)
             return
         }
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Login Failed:", error.localizedDescription)
-                self.showAlert(title: "Faild to Login", message: error.localizedDescription)
+                AuthHelper.showAlert(title: "Faild to Login", message: error.localizedDescription, from: self)
             } else {
                 print("Login Successful")
                 // TODO: Navigate to Home
             }
         }
-    }
-    
-    
-    // MARK: - Helper Methods
-
-    private func showAlert(title: String, message: String) {
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        AlertManager.showAlert(title: title, message: message, preferredStyle: .alert, actions: [defaultAction], from: self)
-    }
-    
-    private func isValidEmail(_ email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
-        return emailPredicate.evaluate(with: email)
-    }
-
-
-    private func isValidPassword(_ password: String) -> Bool {
-        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$"
-        let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegex)
-        return passwordTest.evaluate(with: password)
     }
     /*
     // MARK: - Navigation
@@ -101,5 +80,4 @@ class Login: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
