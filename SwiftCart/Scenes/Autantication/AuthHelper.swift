@@ -28,4 +28,10 @@ struct AuthHelper {
         let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordPredicate.evaluate(with: password)
     }
+    
+    static func isValidName(_ name: String) -> Bool {
+        let nameRegex = "^[A-Za-z]{3,20}$"
+        let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
+        return namePredicate.evaluate(with: name)
+    }
 }

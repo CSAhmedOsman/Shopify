@@ -21,7 +21,6 @@ class SginUp: UIViewController { // TODO: fix routation in Sgin UP
         // Do any additional setup after loading the view.
     }
     
-    
     @IBAction func backBtn(_ sender: Any) { }
 
     @IBAction func skipBtn(_ sender: Any) { }
@@ -37,14 +36,39 @@ class SginUp: UIViewController { // TODO: fix routation in Sgin UP
 
     @IBAction func sginUp(_ sender: Any) {
         guard let email = emailTF.text, !email.isEmpty,
-              let password = passwordTF.text, !password.isEmpty else {
-            print("Email and password are required")
+              let password = passwordTF.text, !password.isEmpty,
+              let rePassword = rePasswordTF.text, !rePassword.isEmpty,
+              let name = nameTF.text, !name.isEmpty
+        else {
+            AuthHelper.showAlert(title: "Error", message: "All fileds should be completed", from: self)
+            return
+        }
+        
+        guard password == rePassword else {
+            AuthHelper.showAlert(title: "Invalid password matching!", message: "Passwords do not match", from: self)
+            return
+        }
+        
+        guard AuthHelper.isValidPassword(password: password) else {
+            AuthHelper.showAlert(title: "Invalid password", message: "Password must contain one at least uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long.", from: self)
+            return
+        }
+        
+        guard AuthHelper.isValidName(name) else {
+            AuthHelper.showAlert(title: "Invalid name", message: "pleas enter name between 3 - 20 Character", from: self)
             return
         }
 
+        guard AuthHelper.isValidEmail(email) else {
+            AuthHelper.showAlert(title: "Invalid email", message: "Please enter a valid email address.", from: self)
+            return
+        }
+        
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                print("Error creating user: \(error.localizedDescription)")
+                AuthHelper.showAlert(title: "Error creating user",
+                                     message: error.localizedDescription,
+                                     from: self)
             } else {
                 print("User created successfully")
                 // Navigate to the next screen, the home screen

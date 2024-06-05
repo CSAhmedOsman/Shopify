@@ -63,7 +63,6 @@ class Login: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                print("Login Failed:", error.localizedDescription)
                 AuthHelper.showAlert(title: "Faild to Login", message: error.localizedDescription, from: self)
             } else {
                 print("Login Successful")
