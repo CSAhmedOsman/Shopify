@@ -19,24 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Create a UIWindow instance
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        // Load the Login view controller from the Nib file
         let sginUPViewController = Login(nibName: "Login", bundle: nil)
         
-        // Create a navigation controller with Login as the root view controller
         let navigationController = UINavigationController(rootViewController: sginUPViewController)
         
-        // Set the root view controller of the window to be the navigation controller
         window?.rootViewController = navigationController
 
-        // Make the window visible
         window?.makeKeyAndVisible()
         
         FirebaseApp.configure()
-        print("Window: \(window)")
-        print("Root ViewController: \(window?.rootViewController)")
+
         return true
     }
 

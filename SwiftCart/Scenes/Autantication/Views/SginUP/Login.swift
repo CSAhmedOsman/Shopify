@@ -23,6 +23,7 @@ class Login: UIViewController {
     @IBAction func backBtn(_ sender: Any) {
         print("Test")
         // TODO: pop from stack "self"
+        
     }
 
     @IBAction func skipBtn(_ sender: Any) { 
@@ -32,12 +33,9 @@ class Login: UIViewController {
     
     @IBAction func dontHaveAcc(_ sender: Any) {
         print("Test")
-        let sginUp = SginUp(nibName: "SginUp", bundle: nil)
+        let sginUp = SginUp(nibName: K.sginUpNibName, bundle: nil)
         
-        // Check if the parent view controller is a navigation controller
         if let navController = navigationController {
-            print("Parent is UINavigationController")
-            // Push the SginUp onto the navigation stack
             navController.pushViewController(sginUp, animated: true)
         } else {
             print("Parent is not UINavigationController")

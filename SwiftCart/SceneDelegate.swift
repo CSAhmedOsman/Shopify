@@ -12,23 +12,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Ensure the scene is a UIWindowScene
+
         guard let windowScene = scene as? UIWindowScene else { return }
         
-        // Create a UIWindow instance and set the scene's window property
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        // Load the Login view controller from the Nib file
         let mainViewController = Login(nibName: "Login", bundle: nil)
         
-        // Embed the main view controller in a navigation controller
         let navigationController = UINavigationController(rootViewController: mainViewController)
         
-        // Set the root view controller of the window to the navigation controller
         window.rootViewController = navigationController
 
-        // Make the window visible
         window.makeKeyAndVisible()
     }
 

@@ -27,10 +27,10 @@ class SginUp: UIViewController { // TODO: fix routation in Sgin UP
     @IBAction func skipBtn(_ sender: Any) { }
     
     @IBAction func alleadyHaveAcc(_ sender: Any) {
-        let sginUP = Login(nibName: "Login", bundle: nil)
-        
+        let login = Login(nibName: K.loginNibName, bundle: nil)
+
         if let nabigationContoller = self.navigationController {
-            nabigationContoller.pushViewController(sginUP, animated: true)
+            nabigationContoller.pushViewController(login, animated: true)
         }
     }
 
@@ -41,14 +41,13 @@ class SginUp: UIViewController { // TODO: fix routation in Sgin UP
             return
         }
 
-        // Create a new user account with the provided email and password
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Error creating user: \(error.localizedDescription)")
-                // Handle the error, e.g., show an alert to the user
+                // Handle the error, show an alert to the user
             } else {
                 print("User created successfully")
-                // Navigate to the next screen, e.g., the home screen
+                // Navigate to the next screen, the home screen
             }
         }
     }
