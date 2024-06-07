@@ -1,5 +1,5 @@
 //
-//  Remote.swift
+//  Model.swift
 //  SwiftCart
 //
 //  Created by Mac on 30/05/2024.
