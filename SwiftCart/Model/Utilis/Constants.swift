@@ -23,6 +23,16 @@ public enum K {
         static let productViewName = "ProductViewController"
     }
     
+    enum CategoryID {
+        static let ALL = 0
+        static let MEN = 287822315567
+        static let WOMEN = 287822348335
+        static let KID = 287822381103
+        static let SALE = 287822413871
+    }
+    
     
     //MARK: Add any Const ants u need in a staruct pleas
 }
+
+

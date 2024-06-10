@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -255,22 +256,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oE9-wY-2Z5">
-                                <rect key="frame" x="8" y="100" width="315" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vGW-Ch-lQ4" id="r6r-Pj-4EH"/>
-                                </connections>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJC-F3-78p">
-                                <rect key="frame" x="331" y="100" width="54" height="52"/>
+                                <rect key="frame" x="345" y="99" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="PEx-Ic-Z1b"/>
+                                    <constraint firstAttribute="width" constant="40" id="acK-lJ-NDC"/>
+                                    <constraint firstAttribute="height" constant="40" id="eWN-PT-Xpo"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="jo0-t2-5el"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="cart" catalog="system">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-Zc-zsh">
-                                <rect key="frame" x="0.0" y="160" width="393" height="642"/>
+                                <rect key="frame" x="0.0" y="147" width="393" height="663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s4S-6M-KmA">
                                     <size key="itemSize" width="176" height="128"/>
@@ -307,27 +307,68 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kJS-Uh-LOf">
+                                <rect key="frame" x="4" y="99" width="297" height="41"/>
+                                <segments>
+                                    <segment title="ALL"/>
+                                    <segment title="MEN"/>
+                                    <segment title="WOMEN"/>
+                                    <segment title="SALE"/>
+                                    <segment title="KID"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="vGW-Ch-lQ4" eventType="valueChanged" id="Evo-zl-9D6"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f55-Cp-Mic">
+                                <rect key="frame" x="305" y="99" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3dT-dI-epb"/>
+                                    <constraint firstAttribute="width" constant="40" id="Dsu-gC-dOm"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <menu key="menu" id="yWJ-OZ-7Dk">
+                                    <children>
+                                        <command title="T-SHIRT" id="sVn-99-Kav"/>
+                                        <command title="SHOES" id="zKM-Gw-qAB"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" image="line.horizontal.3.decrease.circle" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="subCategoriesBtnTapped:" destination="vGW-Ch-lQ4" eventType="touchUpInside" id="mfm-nR-uzr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tJW-Yt-bv3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oE9-wY-2Z5" firstAttribute="top" secondItem="TEa-WM-RcT" secondAttribute="top" constant="100" id="2l6-AB-95n"/>
-                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="leading" secondItem="tJW-Yt-bv3" secondAttribute="leading" id="5uK-F5-Chv"/>
-                            <constraint firstItem="AJC-F3-78p" firstAttribute="leading" secondItem="oE9-wY-2Z5" secondAttribute="trailing" constant="8" id="6V1-JZ-Cjv"/>
-                            <constraint firstItem="oE9-wY-2Z5" firstAttribute="leading" secondItem="tJW-Yt-bv3" secondAttribute="leading" constant="8" id="DCn-dG-Vva"/>
-                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="top" secondItem="oE9-wY-2Z5" secondAttribute="bottom" constant="4" id="EMv-0j-m67"/>
-                            <constraint firstAttribute="bottom" secondItem="gvF-Zc-zsh" secondAttribute="bottom" constant="50" id="U4h-WI-VwP"/>
-                            <constraint firstItem="AJC-F3-78p" firstAttribute="leading" secondItem="oE9-wY-2Z5" secondAttribute="trailing" constant="8" id="XWh-tU-bsk"/>
-                            <constraint firstItem="AJC-F3-78p" firstAttribute="top" secondItem="TEa-WM-RcT" secondAttribute="top" constant="100" id="chh-Ht-tlk"/>
-                            <constraint firstItem="tJW-Yt-bv3" firstAttribute="trailing" secondItem="AJC-F3-78p" secondAttribute="trailing" constant="8" id="hIY-Lm-vJW"/>
-                            <constraint firstItem="tJW-Yt-bv3" firstAttribute="trailing" secondItem="gvF-Zc-zsh" secondAttribute="trailing" id="hRG-bG-RNH"/>
-                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="top" secondItem="AJC-F3-78p" secondAttribute="bottom" constant="8" id="mi6-zs-wmf"/>
-                            <constraint firstAttribute="bottom" secondItem="gvF-Zc-zsh" secondAttribute="bottom" constant="50" id="udQ-9h-Qqj"/>
+                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="trailing" secondItem="tJW-Yt-bv3" secondAttribute="trailing" id="0K7-PZ-0df"/>
+                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="top" secondItem="AJC-F3-78p" secondAttribute="bottom" constant="8" id="3Lr-FH-8Np"/>
+                            <constraint firstItem="f55-Cp-Mic" firstAttribute="centerY" secondItem="kJS-Uh-LOf" secondAttribute="centerY" id="3So-nE-oQy"/>
+                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="leading" secondItem="tJW-Yt-bv3" secondAttribute="leading" id="4Qc-A6-oyk"/>
+                            <constraint firstItem="AJC-F3-78p" firstAttribute="leading" secondItem="f55-Cp-Mic" secondAttribute="trailing" id="4rF-dW-oQE"/>
+                            <constraint firstItem="f55-Cp-Mic" firstAttribute="leading" secondItem="kJS-Uh-LOf" secondAttribute="trailing" constant="4" id="9Ot-Yb-twn"/>
+                            <constraint firstItem="kJS-Uh-LOf" firstAttribute="top" secondItem="tJW-Yt-bv3" secondAttribute="top" constant="40" id="GfX-vb-Ibq"/>
+                            <constraint firstItem="tJW-Yt-bv3" firstAttribute="trailing" secondItem="AJC-F3-78p" secondAttribute="trailing" constant="8" id="J9Q-e2-uyC"/>
+                            <constraint firstItem="tJW-Yt-bv3" firstAttribute="trailing" secondItem="AJC-F3-78p" secondAttribute="trailing" constant="8" id="N5j-b0-zMF"/>
+                            <constraint firstItem="AJC-F3-78p" firstAttribute="leading" secondItem="f55-Cp-Mic" secondAttribute="trailing" id="N9t-k4-Zhl"/>
+                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="top" secondItem="kJS-Uh-LOf" secondAttribute="bottom" constant="8" id="RBt-L8-dQ5"/>
+                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="top" secondItem="AJC-F3-78p" secondAttribute="bottom" constant="8" id="gYP-tC-zJJ"/>
+                            <constraint firstItem="kJS-Uh-LOf" firstAttribute="leading" secondItem="tJW-Yt-bv3" secondAttribute="leading" constant="4" id="kan-PL-aUk"/>
+                            <constraint firstItem="AJC-F3-78p" firstAttribute="centerY" secondItem="kJS-Uh-LOf" secondAttribute="centerY" id="npU-RY-FUC"/>
+                            <constraint firstItem="tJW-Yt-bv3" firstAttribute="bottom" secondItem="gvF-Zc-zsh" secondAttribute="bottom" constant="8" id="r4F-Xe-df8"/>
+                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="top" secondItem="AJC-F3-78p" secondAttribute="bottom" constant="8" id="tdn-vJ-F9I"/>
+                            <constraint firstItem="gvF-Zc-zsh" firstAttribute="top" secondItem="f55-Cp-Mic" secondAttribute="bottom" constant="8" id="xzS-fM-Lor"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DGL-7I-n8G"/>
                     <connections>
-                        <outlet property="collectionView" destination="gvF-Zc-zsh" id="GZ4-PV-1tH"/>
+                        <outlet property="categoriesSegmented" destination="kJS-Uh-LOf" id="Z1a-t8-2Ao"/>
+                        <outlet property="collectionView" destination="gvF-Zc-zsh" id="HA7-Ww-Z7m"/>
+                        <outlet property="subCategoriesBtn" destination="f55-Cp-Mic" id="cn1-qh-tGq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8W6-mu-220" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -338,6 +379,7 @@
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="cart.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

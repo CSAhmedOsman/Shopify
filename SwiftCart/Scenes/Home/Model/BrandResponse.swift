@@ -15,27 +15,20 @@ struct BrandResponse: Codable {
     }
 }
 
-// MARK: - SmartCollection
+// MARK: - Brand
 struct Brand: Codable {
     let id: Int?
     let handle, title: String?
-    //let updatedAt: Date?
     let bodyHTML: String?
-    //let publishedAt: Date?
     let sortOrder: String?
-    //let templateSuffix: JSONNull?
     let disjunctive: Bool?
-    //let rules: [Rule]?
     let publishedScope, adminGraphqlAPIID: String?
-    let image: Image?
+    let image: BrandImage?
 
     enum CodingKeys: String, CodingKey {
         case id, handle, title
-        //case updatedAt = "updated_at"
         case bodyHTML = "body_html"
-        //case publishedAt = "published_at"
         case sortOrder = "sort_order"
-        //case templateSuffix = "template_suffix"
         case disjunctive
         case publishedScope = "published_scope"
         case adminGraphqlAPIID = "admin_graphql_api_id"
@@ -43,8 +36,8 @@ struct Brand: Codable {
     }
 }
 
-// MARK: - Image
-struct Image: Codable {
+// MARK: - BrandImage
+struct BrandImage: Codable {
     let createdAt: Date?
     let alt: JSONNull?
     let width, height: Int?
@@ -62,9 +55,7 @@ struct Rule: Codable {
 }
 
 // MARK: - Encode/decode helpers
-
 class JSONNull: Codable, Hashable {
-
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
         return true
     }
