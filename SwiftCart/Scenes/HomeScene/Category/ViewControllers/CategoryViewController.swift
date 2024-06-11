@@ -38,7 +38,15 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
         viewModel.getAllProducts()
     }
  
-    
+    func setupBindings() {
+        viewModel.categoriesObservable?
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] products in
+                self?.products = products
+                self?.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
 
     @IBAction func filter(_ sender: Any) {
         isFilterHidden = !isFilterHidden
@@ -51,15 +59,7 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    func setupBindings() {
-        viewModel.categoriesObservable?
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] products in
-                self?.products = products
-                self?.collectionView.reloadData()
-            })
-            .disposed(by: disposeBag)
-    }
+  
 
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         viewModel.clearFilter()  // Clear any previous filters
@@ -91,6 +91,10 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
 
+    @IBAction func favBtn(_ sender: Any) {
+        coordinator?.goToFav()
+    }
+    
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

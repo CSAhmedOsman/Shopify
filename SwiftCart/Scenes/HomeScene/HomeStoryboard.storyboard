@@ -73,14 +73,14 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TMs-Aw-ouo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="218" height="128"/>
+                                                    <rect key="frame" x="8" y="8" width="202" height="112"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="TMs-Aw-ouo" firstAttribute="leading" secondItem="g7P-6m-x8e" secondAttribute="leading" id="JjH-LC-rat"/>
-                                                <constraint firstAttribute="trailing" secondItem="TMs-Aw-ouo" secondAttribute="trailing" id="N0s-M6-1F5"/>
-                                                <constraint firstAttribute="bottom" secondItem="TMs-Aw-ouo" secondAttribute="bottom" id="NkJ-q2-Cch"/>
-                                                <constraint firstItem="TMs-Aw-ouo" firstAttribute="top" secondItem="g7P-6m-x8e" secondAttribute="top" id="oO2-R5-H5P"/>
+                                                <constraint firstItem="TMs-Aw-ouo" firstAttribute="leading" secondItem="g7P-6m-x8e" secondAttribute="leading" constant="8" id="JjH-LC-rat"/>
+                                                <constraint firstAttribute="trailing" secondItem="TMs-Aw-ouo" secondAttribute="trailing" constant="8" id="N0s-M6-1F5"/>
+                                                <constraint firstAttribute="bottom" secondItem="TMs-Aw-ouo" secondAttribute="bottom" constant="8" id="NkJ-q2-Cch"/>
+                                                <constraint firstItem="TMs-Aw-ouo" firstAttribute="top" secondItem="g7P-6m-x8e" secondAttribute="top" constant="8" id="oO2-R5-H5P"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="218" height="128"/>
@@ -151,15 +151,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eEk-qb-nlH">
-                                <rect key="frame" x="8" y="101.33333333333331" width="279.33333333333331" height="56"/>
+                                <rect key="frame" x="8" y="101.33333333333331" width="282.33333333333331" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jht-fb-ekd">
-                                <rect key="frame" x="339.33333333333331" y="112.33333333333333" width="53.666666666666686" height="34.333333333333329"/>
+                                <rect key="frame" x="342.33333333333331" y="112.33333333333333" width="50.666666666666686" height="34.333333333333329"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="cart" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="favBtn:" destination="9TB-JC-d02" eventType="touchUpInside" id="A1x-Jx-xZc"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bik-Wo-VIa">
                                 <rect key="frame" x="14" y="204.33333333333334" width="365" height="31"/>
@@ -167,9 +170,10 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kXO-Be-J5Q">
                                 <rect key="frame" x="16" y="165.33333333333334" width="361" height="32"/>
                                 <segments>
-                                    <segment title="T-SHIRTS"/>
+                                    <segment title="ALL"/>
                                     <segment title="SHOES"/>
                                     <segment title="ACCESSORIES"/>
+                                    <segment title="T-SHIRTS"/>
                                 </segments>
                                 <connections>
                                     <action selector="SubCategoriesBtn:" destination="9TB-JC-d02" eventType="valueChanged" id="6Vm-Pk-B0c"/>
@@ -197,7 +201,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKM-Me-gPb">
-                                <rect key="frame" x="291.33333333333331" y="110.33333333333331" width="48" height="38"/>
+                                <rect key="frame" x="294.33333333333331" y="110.33333333333331" width="48" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="filter">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,7 +257,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oE9-wY-2Z5">
-                                <rect key="frame" x="8" y="99" width="267.33333333333331" height="56"/>
+                                <rect key="frame" x="8" y="99" width="270.33333333333331" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -264,23 +268,15 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJC-F3-78p">
-                                <rect key="frame" x="331.33333333333331" y="109" width="53.666666666666686" height="36"/>
+                                <rect key="frame" x="334.33333333333331" y="109" width="50.666666666666686" height="36"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="cart" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="favBtn:" destination="vGW-Ch-lQ4" eventType="touchUpInside" id="Tei-mz-BdQ"/>
+                                </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-Zc-zsh">
-                                <rect key="frame" x="12" y="248" width="369" height="554"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s4S-6M-KmA">
-                                    <size key="itemSize" width="176" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UFs-Ag-brQ">
                                 <rect key="frame" x="8" y="163" width="377" height="32"/>
                                 <segments>
@@ -294,16 +290,6 @@
                                     <action selector="segmentedControlChanged:" destination="vGW-Ch-lQ4" eventType="valueChanged" id="GiB-OU-V5a"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vH-7W-bbB">
-                                <rect key="frame" x="283.33333333333331" y="108" width="48" height="38"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="filter">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="filter:" destination="vGW-Ch-lQ4" eventType="touchUpInside" id="8ex-9v-5fs"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="S4h-VS-EDV">
                                 <rect key="frame" x="16" y="202" width="361" height="32"/>
                                 <segments>
@@ -315,6 +301,27 @@
                                     <action selector="SubCategoriesBtn:" destination="vGW-Ch-lQ4" eventType="valueChanged" id="kuO-2d-5Pn"/>
                                 </connections>
                             </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-Zc-zsh">
+                                <rect key="frame" x="12" y="248" width="369" height="554"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s4S-6M-KmA">
+                                    <size key="itemSize" width="176" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vH-7W-bbB">
+                                <rect key="frame" x="286.33333333333331" y="108" width="48" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="filter">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="filter:" destination="vGW-Ch-lQ4" eventType="touchUpInside" id="8ex-9v-5fs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tJW-Yt-bv3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -354,7 +361,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cart" catalog="system" width="128" height="102"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="filter" width="24" height="24"/>
         <image name="heart" catalog="system" width="128" height="107"/>

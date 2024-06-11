@@ -14,6 +14,10 @@ class CategoryViewModel {
         return categoriesSubject.asObservable()
     }
 
+    var filteredBrandProductArray = [Product]()
+    var isFilteringBrandProducts = false
+    
+    
     private var productsArray: [Product] = []
     private var filteredProductsArray: [Product] = []
     
@@ -73,13 +77,30 @@ class CategoryViewModel {
         categoriesSubject.onNext(filteredProductsArray)
     }
 
+    func filterProducts(price: Float) {
+        if price != 0.0 {
+            isFilteringBrandProducts = true
+            filteredBrandProductArray = filteredProductsArray.filter {
+                guard let productPrice = Float($0.variants[0].price) else { return false }
+                return productPrice <= price
+            }
+        } else {
+            isFilteringBrandProducts = false
+        }
+        categoriesSubject.onNext(isFiltering ? (isFilteringBrandProducts ? filteredBrandProductArray : filteredProductsArray ): productsArray)
+    }
+
+    
+    
+    
     func getProductsCount() -> Int {
-        return isFiltering ? filteredProductsArray.count : productsArray.count
+        return isFiltering ? (isFilteringBrandProducts ? filteredBrandProductArray.count : filteredProductsArray.count) : productsArray.count
     }
 
     func getProducts() -> [Product] {
-        return isFiltering ? filteredProductsArray : productsArray
+        return isFiltering ? (isFilteringBrandProducts ? filteredBrandProductArray : filteredProductsArray ): productsArray
     }
+    
     
     func clearFilter() {
         isFiltering = false

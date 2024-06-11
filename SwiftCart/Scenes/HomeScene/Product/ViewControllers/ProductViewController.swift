@@ -38,13 +38,48 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.register(nib, forCellWithReuseIdentifier: "ProductCell")
         
         setupBindings()
+        setUpPriceFilter()
         if let brandID = brandID {
             viewModel.getCategoryProducts(categoryId: brandID)
         }
     }
     
+    func setUpPriceFilter() {
+        sliderPrice.rx.value
+            .distinctUntilChanged()
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                DispatchQueue.global().async {
+                    self.viewModel.filterProducts(price: value)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+
     
-    @IBAction func filter(_ sender: Any) {
+    func setupBindings() {
+        viewModel.categoriesObservable?
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] products in
+                self?.products = products
+                self?.updateSliderRange()
+                self?.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
+
+
+    func updateSliderRange() {
+        let prices = products.compactMap { Float($0.variants[0].price) }
+        if let minPrice = prices.min(), let maxPrice = prices.max() {
+            sliderPrice.minimumValue = minPrice - 30
+            sliderPrice.maximumValue = maxPrice + 30
+            sliderPrice.value = maxPrice
+        }
+    }
+
+   @IBAction func filter(_ sender: Any) {
         isFilterHidden = !isFilterHidden
         UIView.animate(withDuration: 0.5) {
             self.subCategoriesView.isHidden = self.isFilterHidden
@@ -57,24 +92,20 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBAction func SubCategoriesBtn(_ sender: Any) {
         switch subCategoriesView.selectedSegmentIndex {
         case 0:
-            self.viewModel.filterProductsArray(productType: "T-SHIRTS")
+            viewModel.getCategoryProducts(categoryId: brandID ?? 0)
         case 1:
             self.viewModel.filterProductsArray(productType: "SHOES")
         case 2:
             self.viewModel.filterProductsArray(productType: "ACCESSORIES")
-        default:
+        case 3:
             self.viewModel.filterProductsArray(productType: "T-SHIRTS")
+        default:
+            viewModel.getCategoryProducts(categoryId: brandID ?? 0)
         }
     }
     
-    func setupBindings() {
-        viewModel.categoriesObservable?
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] products in
-                self?.products = products
-                self?.collectionView.reloadData()
-            })
-            .disposed(by: disposeBag)
+    @IBAction func favBtn(_ sender: Any) {
+        coordinator?.goToFav()
     }
     
     @IBAction func backTToHome(_ sender: Any) {
