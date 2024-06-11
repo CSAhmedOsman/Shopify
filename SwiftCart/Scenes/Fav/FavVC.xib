@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavVC" customModule="SwiftCart" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="Fbm-iM-98z" id="PUn-ie-Mtc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,23 +19,57 @@
             <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tr6-3A-RTk">
-                    <rect key="frame" x="16" y="67" width="40" height="35"/>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
-                    <connections>
-                        <action selector="backBtn:" destination="-1" eventType="touchUpInside" id="SZT-SP-Mml"/>
-                    </connections>
-                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Fbm-iM-98z">
+                    <rect key="frame" x="16" y="120" width="398" height="788"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vI4-yu-ZiQ">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKQ-Lo-QxV">
+                    <rect key="frame" x="16" y="67" width="398" height="45"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favorites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVa-nH-shA">
+                            <rect key="frame" x="135.66666666666666" y="9.6666666666666714" width="126.99999999999997" height="26"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tr6-3A-RTk">
+                            <rect key="frame" x="0.0" y="5" width="40" height="35"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                            <connections>
+                                <action selector="backBtn:" destination="-1" eventType="touchUpInside" id="SZT-SP-Mml"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="tr6-3A-RTk" firstAttribute="leading" secondItem="BKQ-Lo-QxV" secondAttribute="leading" id="5fR-f1-IAU"/>
+                        <constraint firstItem="RVa-nH-shA" firstAttribute="centerY" secondItem="BKQ-Lo-QxV" secondAttribute="centerY" id="BKW-10-AX2"/>
+                        <constraint firstItem="RVa-nH-shA" firstAttribute="centerX" secondItem="BKQ-Lo-QxV" secondAttribute="centerX" id="Pbh-Ph-mio"/>
+                        <constraint firstAttribute="height" constant="45" id="gR1-Lb-hsX"/>
+                        <constraint firstItem="tr6-3A-RTk" firstAttribute="centerY" secondItem="BKQ-Lo-QxV" secondAttribute="centerY" id="rZ1-OM-v0f"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="tr6-3A-RTk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="lrY-YW-eDS"/>
-                <constraint firstItem="tr6-3A-RTk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="pZa-Pj-6FF"/>
+                <constraint firstItem="BKQ-Lo-QxV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="45t-n3-azs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BKQ-Lo-QxV" secondAttribute="trailing" constant="16" id="Y3d-ra-a37"/>
+                <constraint firstItem="Fbm-iM-98z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Yqg-m7-FIS"/>
+                <constraint firstAttribute="bottom" secondItem="Fbm-iM-98z" secondAttribute="bottom" constant="24" id="kbc-v9-kRN"/>
+                <constraint firstItem="BKQ-Lo-QxV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="psb-6V-ewX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fbm-iM-98z" secondAttribute="trailing" constant="16" id="qAz-PS-wKn"/>
+                <constraint firstItem="Fbm-iM-98z" firstAttribute="top" secondItem="BKQ-Lo-QxV" secondAttribute="bottom" constant="8" id="w4N-8h-bh9"/>
             </constraints>
-            <point key="canvasLocation" x="124" y="-8"/>
+            <point key="canvasLocation" x="122.79069767441861" y="-8.3690987124463518"/>
         </view>
     </objects>
     <resources>
