@@ -52,6 +52,7 @@
 		4C806CA22C1368A300413E54 /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C806CA02C1368A300413E54 /* Login.xib */; };
 		4C806CA32C1368A300413E54 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C806CA12C1368A300413E54 /* Login.swift */; };
 		4C9C39B52C0A2C03003F0769 /* NibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9C39B42C0A2C03003F0769 /* NibViewController.swift */; };
+		4CD50D5B2C1B5DE00016404C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4CD50D5A2C1B5DE00016404C /* IQKeyboardManagerSwift */; };
 		B91DC0852C0E87BF003AE4CC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B91DC0842C0E87BF003AE4CC /* SDWebImage */; };
 		B91DC0872C0E87BF003AE4CC /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B91DC0862C0E87BF003AE4CC /* SDWebImageMapKit */; };
 		B972D5E42C0CA131007E0329 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B972D5E32C0CA131007E0329 /* HomeStoryboard.storyboard */; };
@@ -141,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD50D5B2C1B5DE00016404C /* IQKeyboardManagerSwift in Frameworks */,
 				B91DC0852C0E87BF003AE4CC /* SDWebImage in Frameworks */,
 				4C806C972C1364AB00413E54 /* FirebaseAuth in Frameworks */,
 				B9A4BB842C0E0A2600DB16E5 /* Cosmos in Frameworks */,
@@ -645,6 +647,7 @@
 				B91DC0862C0E87BF003AE4CC /* SDWebImageMapKit */,
 				4C806C962C1364AB00413E54 /* FirebaseAuth */,
 				4C806C982C1364AB00413E54 /* FirebaseFirestoreSwift */,
+				4CD50D5A2C1B5DE00016404C /* IQKeyboardManagerSwift */,
 			);
 			productName = SwiftCart;
 			productReference = 04715A5D2C08F1D100D8DC3B /* SwiftCart.app */;
@@ -679,6 +682,7 @@
 				B9A4BB822C0E0A2600DB16E5 /* XCRemoteSwiftPackageReference "Cosmos" */,
 				B91DC0832C0E87BF003AE4CC /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				4C806C952C1364AB00413E54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4CD50D592C1B5DE00016404C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 04715A5E2C08F1D100D8DC3B /* Products */;
 			projectDirPath = "";
@@ -992,6 +996,14 @@
 				minimumVersion = 10.27.0;
 			};
 		};
+		4CD50D592C1B5DE00016404C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.3;
+			};
+		};
 		B91DC0832C0E87BF003AE4CC /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1028,6 +1040,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4C806C952C1364AB00413E54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		4CD50D5A2C1B5DE00016404C /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4CD50D592C1B5DE00016404C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		B91DC0842C0E87BF003AE4CC /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

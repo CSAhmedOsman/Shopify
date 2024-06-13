@@ -1,4 +1,5 @@
 {
+  "originHash" : "1b2153c669708725f04d0c2e403bd3dee60ced887d5284900c9ce3297e007ea1",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -100,6 +101,15 @@
       }
     },
     {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager",
+      "state" : {
+        "revision" : "19e111f9246b3407fe0c334dc78fa890c40d8c67",
+        "version" : "7.0.3"
+      }
+    },
+    {
       "identity" : "leveldb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/leveldb.git",
@@ -163,5 +173,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
