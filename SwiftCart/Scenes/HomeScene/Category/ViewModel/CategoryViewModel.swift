@@ -78,16 +78,17 @@ class CategoryViewModel {
     }
 
     func filterProducts(price: Float) {
+        var filterArray = isFiltering ? filteredProductsArray : productsArray
         if price != 0.0 {
             isFilteringBrandProducts = true
-            filteredBrandProductArray = filteredProductsArray.filter {
+            filteredBrandProductArray = filterArray.filter {
                 guard let productPrice = Float($0.variants[0].price) else { return false }
                 return productPrice <= price
             }
         } else {
             isFilteringBrandProducts = false
         }
-        categoriesSubject.onNext(isFiltering ? (isFilteringBrandProducts ? filteredBrandProductArray : filteredProductsArray ): productsArray)
+        categoriesSubject.onNext(isFilteringBrandProducts ? filteredBrandProductArray : filteredProductsArray )
     }
 
     

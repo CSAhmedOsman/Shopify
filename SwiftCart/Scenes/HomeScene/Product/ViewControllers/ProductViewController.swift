@@ -33,7 +33,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        setupCollectionViewLayout()
         let nib = UINib(nibName: "ProductCollectionCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "ProductCell")
         
@@ -93,6 +93,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch subCategoriesView.selectedSegmentIndex {
         case 0:
             viewModel.getCategoryProducts(categoryId: brandID ?? 0)
+            viewModel.isFiltering = false
         case 1:
             self.viewModel.filterProductsArray(productType: "SHOES")
         case 2:
@@ -146,5 +147,40 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         let padding: CGFloat = 20
         let collectionViewSize = collectionView.frame.size.width - padding
         return CGSize(width: collectionViewSize / 2, height: ( collectionViewSize / 2))
+    }
+    
+    func createProductsSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10)
+        
+        let horizontalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(200))
+        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize, subitems: [item])
+        
+        let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200))
+        let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize, subitems: [horizontalGroup])
+        
+        let section = NSCollectionLayoutSection(group: verticalGroup)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 2, trailing: 4)
+        section.interGroupSpacing = 10
+        
+        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        section.boundarySupplementaryItems = [sectionHeader]
+        
+        return section
+    }
+    
+    func setupCollectionViewLayout() {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
+            switch sectionIndex {
+            case 0:
+                return self.createProductsSectionLayout()
+           
+            default:
+                return nil
+            }
+        }
+        collectionView.collectionViewLayout = layout
     }
 }
