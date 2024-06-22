@@ -96,7 +96,7 @@ struct FavCRUD {
 
 
 
-    private func getDraftOrder(favId: Int, completion: @escaping (DraftOrder?) -> Void) {
+    func getDraftOrder(favId: Int, completion: @escaping (DraftOrder?) -> Void) {
         let endpoint = "/\(favId).json"
         AF.request(baseUrl + endpoint, method: .get, headers: ["X-Shopify-Access-Token": accessToken])
             .validate()

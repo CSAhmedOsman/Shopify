@@ -70,6 +70,7 @@
 		4CC0F67F2C1F049C006986A1 /* ShopifyProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0F67E2C1F049C006986A1 /* ShopifyProduct.swift */; };
 		4CCFAD5E2C23412B0011B9FC /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 4CCFAD5D2C23412B0011B9FC /* Reachability */; };
 		4CD50D5E2C1B5F6A0016404C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4CD50D5D2C1B5F6A0016404C /* IQKeyboardManagerSwift */; };
+		4CD52C232C277E6700F77068 /* FavCRUDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD52C222C277E6600F77068 /* FavCRUDTest.swift */; };
 		4CDD485C2C26484000B50F65 /* ImageZoom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDD485B2C26484000B50F65 /* ImageZoom.xib */; };
 		4CDD485D2C26484000B50F65 /* ImageZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD485A2C26484000B50F65 /* ImageZoom.swift */; };
 		4CDD48602C266A6700B50F65 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 4CDD485F2C266A6700B50F65 /* GoogleSignIn */; };
@@ -176,6 +177,7 @@
 		4C806CA12C1368A300413E54 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4C9C39B42C0A2C03003F0769 /* NibViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibViewController.swift; sourceTree = "<group>"; };
 		4CC0F67E2C1F049C006986A1 /* ShopifyProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyProduct.swift; sourceTree = "<group>"; };
+		4CD52C222C277E6600F77068 /* FavCRUDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCRUDTest.swift; sourceTree = "<group>"; };
 		4CDD485A2C26484000B50F65 /* ImageZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoom.swift; sourceTree = "<group>"; };
 		4CDD485B2C26484000B50F65 /* ImageZoom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageZoom.xib; sourceTree = "<group>"; };
 		4CDD48632C266D9E00B50F65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 			children = (
 				4C0C0E572C26E7BF0034039E /* SwiftCartTests.swift */,
 				4C0C0E652C26EBBF0034039E /* ShopifyAPIHelperTest.swift */,
+				4CD52C222C277E6600F77068 /* FavCRUDTest.swift */,
 			);
 			path = SwiftCartTests;
 			sourceTree = "<group>";
@@ -1098,6 +1101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C0C0E582C26E7BF0034039E /* SwiftCartTests.swift in Sources */,
+				4CD52C232C277E6700F77068 /* FavCRUDTest.swift in Sources */,
 				4C0C0E662C26EBBF0034039E /* ShopifyAPIHelperTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
