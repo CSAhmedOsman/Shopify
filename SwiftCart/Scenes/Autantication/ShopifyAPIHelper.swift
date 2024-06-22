@@ -100,11 +100,11 @@ struct DraftOrder: Decodable {
 }
 
 // Define the structure for the CustomerResponse.
-struct CustomerResponse: Decodable {
+struct CustomerResponse: Codable {
     let customer: Customer
 }
 
-struct Customer: Decodable {
+struct Customer: Codable {
     let id: Int
     let email: String
     let firstName: String

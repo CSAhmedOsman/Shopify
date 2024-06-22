@@ -21,6 +21,8 @@ public enum K {
         static let Home_View_Name = "HomeViewController"
         static let Category_View_Name = "CategoryViewController"
         static let Product_View_Name = "ProductViewController"
+        
+        
     }
     
     enum Settings {
@@ -32,6 +34,8 @@ public enum K {
         static let Cart_View_Name = "CartViewController"
         static let Profile_View_Name = "ProfileViewController"
         static let Currency_View_Name = "CurrencyViewController"
+        static let Order_View_Name = "OrderViewController"
+        static let OrderDetails_View_Name = "OrderDetailsViewController"
     }
     
     enum Shopify {

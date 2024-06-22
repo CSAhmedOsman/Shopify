@@ -45,15 +45,16 @@ struct UserDefaultsHelper {
         UserDefaults.standard.synchronize()
     }
     
-    func printUserDefaults() {
+    func printUserDefaults()->Customer {
         let userEmail = UserDefaults.standard.string(forKey: "userEmail") ?? "No Data"
         let userName = UserDefaults.standard.string(forKey: "userName") ?? "No Data"
         let userUID = UserDefaults.standard.string(forKey: "userUID") ?? "No Data"
         let shopifyCustomerID = UserDefaults.standard.string(forKey: "shopifyCustomerID") ?? "No Data"
-        let cartID = UserDefaults.standard.string(forKey: "cartID") ?? "No Data"
-        let favID = UserDefaults.standard.string(forKey: "favID") ?? "No Data"
+       // let cartID = UserDefaults.standard.string(forKey: "cartID") ?? "No Data"
+        //let favID = UserDefaults.standard.string(forKey: "favID") ?? "No Data"
         
-        print("UserDefaults - Email: \(userEmail), Name: \(userName), UID: \(userUID), ShopifyCustomerID: \(shopifyCustomerID), CartID: \(cartID), FavID: \(favID)")
+        //print("UserDefaults - Email: \(userEmail), Name: \(userName), UID: \(userUID), ShopifyCustomerID: \(shopifyCustomerID), CartID: \(cartID), FavID: \(favID)")
+        return Customer(id: Int(shopifyCustomerID) ?? 0, email: userEmail, firstName: userName, lastName: "")
     }
 
         private let userDefaults = UserDefaults.standard

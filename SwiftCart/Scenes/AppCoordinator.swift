@@ -66,18 +66,24 @@ class AppCoordinator: Coordinator {
             let categoryVc = storyboard.instantiateViewController(withIdentifier: K.Home.Category_View_Name) as! CategoryViewController
             let myCartVC = settingsStoryboard.instantiateViewController(withIdentifier: K.Settings.Cart_View_Name) as! CartViewController
             let profileVC = settingsStoryboard.instantiateViewController(withIdentifier: K.Settings.Profile_View_Name) as! ProfileViewController
+            
+            let orderVc = storyboard.instantiateViewController(withIdentifier: K.Settings.Order_View_Name) as! OrderViewController
+            
             homeVc.coordinator = self
             categoryVc.coordinator = self
             myCartVC.coordinator = self
             profileVC.coordinator = self
             
+            orderVc.coordinator = self
+            
             homeVc.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
             categoryVc.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "list.bullet"), tag: 1)
             myCartVC.tabBarItem = UITabBarItem(title: "MyCart", image: UIImage(systemName: "cart"), tag:2)
             profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag:3)
+            orderVc.tabBarItem = UITabBarItem(title: "Order", image: UIImage(systemName: "star"), tag:4)
             
             let tabBar = UITabBarController()
-            tabBar.viewControllers = [homeVc, categoryVc, myCartVC, profileVC]
+            tabBar.viewControllers = [homeVc, categoryVc, myCartVC, profileVC,orderVc]
             tabBar.tabBar.backgroundColor = .white
             
             navigationController.pushViewController(tabBar, animated: true)
@@ -99,6 +105,35 @@ class AppCoordinator: Coordinator {
                         preferredStyle: .alert,
                         from: navigationController)
         }
+    }
+ 
+    
+    
+    func goToOrders() {
+        if isNetworkReachable() {
+            let storyboard = UIStoryboard(name: K.Home.Home_Storyboard_Name, bundle: Bundle.main)
+            let orderVc = storyboard.instantiateViewController(withIdentifier: K.Home.Product_View_Name) as! OrderViewController
+            
+            orderVc.coordinator = self
+            
+            navigationController.pushViewController(orderVc, animated: true)
+        } else {
+            Utils.showAlert(title: "No Internet Connection",
+                            message: "Please check your network settings and try again.",
+                            preferredStyle: .alert,
+                            from: navigationController)
+        }
+    }
+    func goToOrdersDerails(orderDetails: Order) {
+     
+            let storyboard = UIStoryboard(name: K.Home.Home_Storyboard_Name, bundle: Bundle.main)
+        let orderDetailsVc = storyboard.instantiateViewController(withIdentifier: K.Settings.OrderDetails_View_Name) as! OrderDetailsViewController
+            
+            orderDetailsVc.coordinator = self
+            orderDetailsVc.orderDetails = orderDetails
+            
+            navigationController.pushViewController(orderDetailsVc, animated: true)
+      
     }
     
     func goToSettings() {
